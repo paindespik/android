@@ -29,6 +29,9 @@ class JeuActivity : AppCompatActivity() {
             if (retirer>0 ){
                 nb-=retirer
             }
+            if(nb<=0){
+                aKiLeTour.text="${joueurEnCours} a perdu"
+            }
             nbAllumettes.text=nb.toString()
             if(joueurEnCours==player1){
                 joueurEnCours=player2
@@ -36,14 +39,6 @@ class JeuActivity : AppCompatActivity() {
             else
                 joueurEnCours=player1
             aKiLeTour.text=joueurEnCours
-        }
-        else
-        {
-            if(joueurEnCours==player1)
-                aKiLeTour.text="${player1} u loose"
-
-            if(joueurEnCours==player2)
-                aKiLeTour.text="${player2} u loose"
         }
 
     }
