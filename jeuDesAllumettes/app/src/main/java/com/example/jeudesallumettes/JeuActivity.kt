@@ -23,23 +23,36 @@ class JeuActivity : AppCompatActivity() {
     }
 
     fun nextPlayer(button: View){
-
-        if(nb>0){
-            var retirer=nbARetirer.text.toString().toInt()
-            if (retirer>0 ){
-                nb-=retirer
-            }
-            if(nb<=0){
-                aKiLeTour.text="${joueurEnCours} a perdu"
-            }
-            nbAllumettes.text=nb.toString()
-            if(joueurEnCours==player1){
-                joueurEnCours=player2
-            }
-            else
-                joueurEnCours=player1
-            aKiLeTour.text=joueurEnCours
+        var aRetirer=0
+        if(button==retirer1)
+            aRetirer=1
+        else if (button==retirer2)
+            aRetirer=2
+        else
+            aRetirer=3
+        if(retirerAllumettes(aRetirer)==false)
+        {
+            aKiLeTour.text="${joueurEnCours} a perdu! quel nul!"
         }
 
+
     }
+
+    fun retirerAllumettes(num:Int):Boolean{
+        if(nb>0){
+            nb-=num
+            if(nb>0)
+            {
+                if (joueurEnCours==player1)
+                    joueurEnCours=player2
+                else
+                    joueurEnCours=player1
+            }
+
+            return true
+        }
+        return false
+    }
+
+
 }

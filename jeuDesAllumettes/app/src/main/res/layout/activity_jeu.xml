@@ -27,29 +27,36 @@
         app:layout_constraintTop_toBottomOf="@+id/nbAllumettes" />
 
     <Button
-        android:id="@+id/prochainJoueur"
+        android:id="@+id/retirer1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginBottom="223dp"
         android:onClick="nextPlayer"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bveuleu" />
+        android:text="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/bveuleu"
-        android:layout_width="350dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="149dp"
-        android:layout_marginEnd="1dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/aKiLeTour">
+    <Button
+        android:id="@+id/retirer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="225dp"
+        android:onClick="nextPlayer"
+        android:text="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/retirer1" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/nbARetirer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/retirer3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginBottom="225dp"
+        android:onClick="nextPlayer"
+        android:text="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/retirer2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
