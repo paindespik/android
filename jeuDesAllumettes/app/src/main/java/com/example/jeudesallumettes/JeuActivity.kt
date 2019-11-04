@@ -16,7 +16,7 @@ class JeuActivity : AppCompatActivity() {
         setContentView(R.layout.activity_jeu)
         player1 = intent.getStringExtra("player1")
         player2 = intent.getStringExtra("player2")
-        nbAllumettes.text = nb.toString()
+        nbAllumettes.text = "nombres allumettes : " + nb.toString()
         joueurEnCours=player1
         aKiLeTour.text=joueurEnCours
 
@@ -34,10 +34,11 @@ class JeuActivity : AppCompatActivity() {
         {
             aKiLeTour.text="${joueurEnCours} a perdu! quel nul!"
         }
+        else
+            nbAllumettes.text="nombres allumettes : " + nb.toString()
 
 
     }
-
     fun retirerAllumettes(num:Int):Boolean{
         if(nb>0){
             nb-=num
@@ -47,9 +48,10 @@ class JeuActivity : AppCompatActivity() {
                     joueurEnCours=player2
                 else
                     joueurEnCours=player1
+                return true
             }
+            return false
 
-            return true
         }
         return false
     }
