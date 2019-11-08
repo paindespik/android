@@ -8,6 +8,6 @@ class gameTest {
 
     @Test
     fun retirerAllumettes() {
-        
+
     }
 }
