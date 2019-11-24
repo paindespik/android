@@ -16,7 +16,7 @@ class game : AppCompatActivity() {
     fun retirerAllumettes(num:Int, nball:Int, play1:String?, play2:String?, JoueurEnCours:String?):Boolean{
         player1=play1;
         player2=play2;
-        joueurEnCours=joueurEnCours
+        joueurEnCours=JoueurEnCours
         nb=nball;
         if(nb>0){
             nb-=num
