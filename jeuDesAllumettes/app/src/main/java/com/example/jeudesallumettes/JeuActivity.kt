@@ -33,7 +33,6 @@ class JeuActivity : AppCompatActivity() {
             aRetirer=3
         if(game1.retirerAllumettes(aRetirer,nb,player1,player2, joueurEnCours)==false)
         {
-
             aKiLeTour.text="${joueurEnCours} a perdu! quel nul!"
         }
         else{

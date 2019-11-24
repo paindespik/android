@@ -29,7 +29,7 @@ class game : AppCompatActivity() {
 
                 return true
             }
-            nb=0;
+            nb=0
             return false
 
         }
