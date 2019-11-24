@@ -58,7 +58,17 @@ class JeuActivity : AppCompatActivity() {
         nbAllumettes.text="nombres allumettes : " + nb.toString()
         if (AI==true && nb>0 && joueurEnCours==player2)
         {
-            aRetirer= (1..3).random()
+
+            aRetirer=(nb%4)-1
+            if(aRetirer==-1)
+                aRetirer=3
+            else if(aRetirer==0)
+                aRetirer= (1..3).random()
+
+
+
+
+
             if(game1.retirerAllumettes(aRetirer,nb,player1,player2, joueurEnCours)==false)
             {
                 aKiLeTour.text="${joueurEnCours} a perdu! quel nul!"
