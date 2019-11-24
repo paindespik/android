@@ -12,11 +12,20 @@ class JeuActivity : AppCompatActivity() {
     var player1:String?=""
     var player2:String?=""
     var game1 = game();
+    var AI:Boolean=false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_jeu)
         player1 = intent.getStringExtra("player1")
         player2 = intent.getStringExtra("player2")
+        AI=intent.getBooleanExtra("AI", false)
+        if (AI){
+            Description.text = "Against AI"
+            player2="AI"
+        }
+
+        else
+            Description.text="ONE VS ONE"
         nbAllumettes.text = "nombres allumettes : " + nb.toString()
         joueurEnCours=player1
         aKiLeTour.text=joueurEnCours
@@ -24,13 +33,22 @@ class JeuActivity : AppCompatActivity() {
     }
 
     fun nextPlayer(button: View){
-        var aRetirer=0
-        if(button==retirer1)
-            aRetirer=1
-        else if (button==retirer2)
-            aRetirer=2
-        else
-            aRetirer=3
+        var aRetirer:Int=0
+        if(joueurEnCours==player1 || AI==false){
+            if(button==retirer1)
+                aRetirer=1
+            else if (button==retirer2)
+                aRetirer=2
+            else
+                aRetirer=3
+
+
+        }
+
+        else{
+            
+        }
+
         if(game1.retirerAllumettes(aRetirer,nb,player1,player2, joueurEnCours)==false)
         {
             aKiLeTour.text="${joueurEnCours} a perdu! quel nul!"
@@ -46,6 +64,7 @@ class JeuActivity : AppCompatActivity() {
 
 
 
+
     }
 
     fun recommencer(button: View){
@@ -53,6 +72,7 @@ class JeuActivity : AppCompatActivity() {
         aKiLeTour.text=joueurEnCours;
         nbAllumettes.text="nombres allumettes : " + nb.toString();
     }
+
 
 
 }
