@@ -33,8 +33,7 @@ class JeuActivity : AppCompatActivity() {
     }
 
     fun nextPlayer(button: View){
-        var aRetirer:Int=0
-        if(joueurEnCours==player1 || AI==false){
+        var aRetirer:Int
             if(button==retirer1)
                 aRetirer=1
             else if (button==retirer2)
@@ -43,11 +42,7 @@ class JeuActivity : AppCompatActivity() {
                 aRetirer=3
 
 
-        }
 
-        else{
-            
-        }
 
         if(game1.retirerAllumettes(aRetirer,nb,player1,player2, joueurEnCours)==false)
         {
@@ -61,7 +56,20 @@ class JeuActivity : AppCompatActivity() {
         joueurEnCours=game1.getPlayer();
         nb=game1.getNb();
         nbAllumettes.text="nombres allumettes : " + nb.toString()
-
+        if (AI==true && nb>0 && joueurEnCours==player2)
+        {
+            aRetirer= (1..3).random()
+            if(game1.retirerAllumettes(aRetirer,nb,player1,player2, joueurEnCours)==false)
+            {
+                aKiLeTour.text="${joueurEnCours} a perdu! quel nul!"
+            }
+            else{
+                joueurEnCours=game1.getPlayer();
+                aKiLeTour.text=joueurEnCours;
+            }
+            nb=game1.getNb();
+            nbAllumettes.text="nombres allumettes : " + nb.toString()
+        }
 
 
 
@@ -69,8 +77,10 @@ class JeuActivity : AppCompatActivity() {
 
     fun recommencer(button: View){
         nb=20;
+        joueurEnCours=player1
         aKiLeTour.text=joueurEnCours;
         nbAllumettes.text="nombres allumettes : " + nb.toString();
+
     }
 
 

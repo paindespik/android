@@ -35,8 +35,17 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         when (v.id) {
             R.id.checkBox -> {
                 AI = isChecked
-                if (AI)
-                    input2.isVisible=false
+                if (AI){
+                    input2.visibility=View.INVISIBLE
+                    textInputLayout2.visibility=View.INVISIBLE
+                    textView2.visibility=View.INVISIBLE
+                }
+                else{
+                    input2.visibility=View.VISIBLE
+                    textInputLayout2.visibility=View.VISIBLE
+                    textView2.visibility=View.VISIBLE
+                }
+
             }
 
         }
