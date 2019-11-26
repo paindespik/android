@@ -59,13 +59,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun getItemCount(): Int {
-            return 1000
+            return 9
         }
 
         override fun onBindViewHolder(holder: PlayerCellHolder, position: Int) {
             Log.i("BRITTO", "onBindViewHolder $position")
             // 1 charger le player 'position'
-            val myPlayer = Player("Bob ${position}", position * position * 100)
+            val myPlayer = Player(playerList[position].name, playerList[position].score)
 
             // 2 envoyer le player dans le holder
             holder.displayerPlayer(myPlayer)
